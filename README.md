@@ -43,7 +43,6 @@ Part 1 focuses on setting up a **minimal Kubernetes cluster** using **K3s** on *
 
 ## ⚙️ Requirements
 
-* Windows 11
 * VirtualBox
 * Vagrant
 * Hardware virtualization enabled (VT-x / SVM)
@@ -134,10 +133,3 @@ vagrant ssh ofrikelSW
 
 ➡️ **Part 2: K3s with 3 applications and Ingress**
 
----
-
-If you want, I can now:
-
-* Review your `Vagrantfile` for **grading safety**
-* Write a **P2 README**
-* Or help you prepare **evaluation answers** (“explain your setup”)
