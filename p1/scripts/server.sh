@@ -6,9 +6,14 @@ apt update -y
 apt upgrade -y
 
 # Install K3s server
-curl -sfL https://get.k3s.io | sh -
+curl -sfL https://get.k3s.io | sh -s - \
+  --node-ip 192.168.56.110 \
+  --advertise-address 192.168.56.110 \
+  --write-kubeconfig-mode 644 \
+  --disable traefik \
+  --disable servicelb
 
-# Wait for node token
+# Wait for node token till it is created and ready
 while [ ! -f /var/lib/rancher/k3s/server/node-token ]; do
   sleep 1
 done

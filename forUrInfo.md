@@ -8,7 +8,7 @@ This section explains the **core concepts** needed to understand **Part 2** of t
 
 ### 🔹 What is Kubernetes?
 
-**Kubernetes (K8s)** is a container orchestration system that:
+**Kubernetes (K8s)**  is an open-source platform designed to automate deploying, scaling, and managing containerized applications that:
 
 * Runs applications in containers
 * Keeps them running
@@ -41,6 +41,10 @@ A **Kubernetes cluster** is made of **nodes**.
 | Worker                 | Runs applications (pods)                    |
 
 In P1:
+we are building a "Cluster" (aka vms) consisting of two machines:
+
+- The Controller (Server): This is the "brain." It makes decisions about where to run applications and monitors the health of the entire system.
+- The Agent (Worker): This is the "muscle." It simply follows orders from the Controller and actually runs the applications.
 
 * `ofrikelS` → **Server**
 * `ofrikelSW` → **Worker**
@@ -54,7 +58,28 @@ In P1:
 Examples:
 
 ```bash
-kubectl get nodes
+vagrant up
+```
+conect with ssh loginS for server and loginnSW for worker
+
+```bash
+vagrant ssh loginS
+```
+now check the ip
+
+```bash
+ip -4 a | grep -E "enp0s8|192\.168\.56\."
+ip -4 a | grep inet
+```
+check if the k3s running 
+
+```bash
+sudo systemctl status k3s --no-pager
+sudo systemctl status k3s-agent --no-pager -l
+```
+
+```bash
+kubectl get nodes -o wide
 kubectl get pods
 kubectl apply -f file.yaml
 ```
@@ -64,6 +89,7 @@ In K3s, it is available as:
 ```bash
 sudo k3s kubectl
 ```
+So a cluster is a group of computers (in our case, virtual machines) that work together as a single system to run applications. Instead of managing each machine individually, we treat the entire group as one powerful resource managed by Kubernetes.
 
 ---
 
