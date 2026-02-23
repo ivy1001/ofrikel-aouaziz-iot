@@ -10,7 +10,7 @@ sudo apt-get install -y ca-certificates curl gnupg git
 echo "[3/6] Install Docker"
 if ! command -v docker >/dev/null 2>&1; then
   curl -fsSL https://get.docker.com | sh
-  sudo usermod -aG docker vagrant
+  sudo usermod -aG docker "$USER"
 fi
 
 echo "[4/6] Install kubectl"

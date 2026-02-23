@@ -23,7 +23,7 @@ Instead of manually running containers, Kubernetes **automates everything**.
 
 **K3s** is a **lightweight Kubernetes distribution**:
 
-K3s is a highly stripped-down, certified version of Kubernetes. Standard Kubernetes is "heavy" and requires a lot of RAM; K3s is optimized for low-resource environments like the virtual machines you are building in Part 1.
+K3s is a certified version of Kubernetes. Standard Kubernetes is "heavy" and requires a lot of RAM; K3s is optimized for low-resource environments like the virtual machines we are building in Part 1.
 
 * Designed for low resources
 * Perfect for learning and small environments
@@ -256,6 +256,11 @@ kubectl get nodes -o wide
 sudo kubectl get all
 ```
 
+```bash
+curl -H "Host:app1.com" 192.168.56.110
+curl http://app1.com
+```
+delete the folders. rm -rf "/Users/pro/VirtualBox VMs/ofrikelS"
 ---
 
 ## 📌 Summary
@@ -271,3 +276,6 @@ sudo kubectl get all
 
 ---
 
+## 🧩 Core Objects Used in P3
+
+K3s is a Kubernetes distribution. K3d is a tool that runs K3s inside Docker containers for local development.
