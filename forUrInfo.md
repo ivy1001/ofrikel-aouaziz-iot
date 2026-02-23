@@ -23,12 +23,14 @@ Instead of manually running containers, Kubernetes **automates everything**.
 
 **K3s** is a **lightweight Kubernetes distribution**:
 
+K3s is a highly stripped-down, certified version of Kubernetes. Standard Kubernetes is "heavy" and requires a lot of RAM; K3s is optimized for low-resource environments like the virtual machines you are building in Part 1.
+
 * Designed for low resources
 * Perfect for learning and small environments
 * Uses less RAM and fewer components than full Kubernetes
 
 👉 In this project, **K3s = Kubernetes** (just lighter).
-
+We install K3s directly onto the operating system of our virtual machines.
 ---
 
 ### 🔹 Cluster, Nodes, Server, Worker
@@ -89,16 +91,27 @@ In K3s, it is available as:
 ```bash
 sudo k3s kubectl
 ```
+
+Fot ifconfog the ubuntu doesnt have it so when connecting with ssh innstal
+
+```bash
+sudo apt update
+sudo apt install -y net-tools
+```
 So a cluster is a group of computers (in our case, virtual machines) that work together as a single system to run applications. Instead of managing each machine individually, we treat the entire group as one powerful resource managed by Kubernetes.
 
 ---
 
 ## 🧩 Core Objects Used in P2
 
+In Part 2, the objective shifts from setting up the *infrastructure* to *application deployment* and traffic routing.
+While Part 1 was about the "cluster"(how to create vm), Part 2 is about how you actually use that cluster to host websites and manage how users access them.
+
 ### 🔹 Pod
 
 A **Pod** is the **smallest unit** in Kubernetes.
-
+In the world of Kubernetes, you don't run a "container" directly; you run a Pod.
+Think of a Pod as a "wrapper" or a "shell" around your application container. in this part the pods arre app1 app2 app3
 * It runs **one or more containers**
 * Usually **1 container per pod**
 
@@ -108,8 +121,9 @@ You rarely create pods directly.
 
 ### 🔹 Deployment (VERY IMPORTANT)
 
+You rarely create a Pod by itself. Instead, you create a Deployment (The Manager).
 A **Deployment**:
-
+is a set of instructions that tells Kubernetes how many copies (replicas) of a Pod you want running.
 * Manages pods
 * Restarts them if they crash
 * Allows scaling (replicas)
@@ -124,8 +138,8 @@ Example use:
 
 ### 🔹 Service
 
+Pods are "mortal"—they die and get replaced with new IP addresses all the time. A Service provides a permanent way to find them.(The Internal Phone Number)
 A **Service** exposes pods **inside the cluster**.
-
 Why?
 
 * Pods have dynamic IPs
@@ -144,7 +158,8 @@ Types:
 ### 🔹 Ingress (KEY FOR P2)
 
 **Ingress** allows **external access** to services via HTTP.
-
+An Ingress is like a smart receptionist for your cluster that directs visitors to the right "room" (application) based on the URL they typed.
+It looks at the domain name you typed (like app1.com or app2.com) and routes you to the correct Service.
 Instead of:
 
 ```text
@@ -186,6 +201,8 @@ In K3s:
 
 ## 🔁 How Everything Connects (P2 Mental Model)
 
+Pods run the applications, Services expose them internally, and Ingress exposes them externally with routing rules.
+
 ```
 Browser
    ↓
@@ -221,6 +238,23 @@ In Part 2:
 * This mirrors **real production Kubernetes**
 * Same concepts used in cloud environments
 * P3 (Argo CD) will **deploy these automatically**
+
+---
+
+```bash
+vagrant up
+```
+conect with ssh loginS for server and loginnSW for worker
+
+```bash
+vagrant ssh loginS
+```
+test the mv
+
+```bash
+kubectl get nodes -o wide
+sudo kubectl get all
+```
 
 ---
 
