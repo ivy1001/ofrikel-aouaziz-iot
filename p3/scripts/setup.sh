@@ -20,7 +20,7 @@ if k3d cluster list 2>/dev/null | grep -q "^${CLUSTER}"; then
     echo "  Cluster '${CLUSTER}' already exists ✅"
 else
     k3d cluster create "$CLUSTER" \
-        -p "8888:8888@loadbalancer" \
+        -p "8888:80@loadbalancer" \
         --wait
     echo "  Cluster created ✅"
 fi
