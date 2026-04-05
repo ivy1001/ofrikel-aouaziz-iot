@@ -123,7 +123,7 @@ Open **http://localhost:8181** and log in:
 | Field    | Value            |
 | -------- | ---------------- |
 | Username | `root`           |
-| Password | `gitlabadmin123` |
+| Password | `B0nusR00t#2026!` |
 
 ### Step 5 — Create the GitLab repository and push the app
 
@@ -280,16 +280,6 @@ You should see the **playground** application with status **Synced** and **Healt
 
 ---
 
-## ⚠️ Troubleshooting
-
-| Problem | Cause | Fix |
-| --- | --- | --- |
-| Pod `OOMKilled` (exit 137) | Memory limit too low | Increase limits in `gitlab-values.yaml` and `helm upgrade` |
-| GitLab login → 422 error | CSRF mismatch (wrong host/port) | Ensure `gitlab-values.yaml` has `hosts.gitlab.name: localhost` and `externalPort: 8181` |
-| "Invalid login or password" | Root user not seeded properly | The `setup.sh` script handles this automatically |
-| Helm "another operation in progress" | Stuck release | `helm uninstall gitlab -n gitlab --wait`, then re-run |
-
----
 
 ## 🧹 Cleanup
 
