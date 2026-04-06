@@ -2,8 +2,8 @@
 set -e
 
 # Update system
-apt update -y
-apt upgrade -y
+apt-get update -y
+apt-get upgrade -y
 
 # Wait for token from server
 while [ ! -f /vagrant/token ]; do

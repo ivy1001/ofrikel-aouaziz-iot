@@ -2,8 +2,8 @@
 set -e
 
 # Update system
-apt update -y
-apt upgrade -y
+apt-get update -y
+apt-get upgrade -y
 
 # Install K3s server
 curl -sfL https://get.k3s.io | sh -s - \
