@@ -48,8 +48,8 @@ we are building a "Cluster" (aka vms) consisting of two machines:
 - The Controller (Server): This is the "brain." It makes decisions about where to run applications and monitors the health of the entire system.
 - The Agent (Worker): This is the "muscle." It simply follows orders from the Controller and actually runs the applications.
 
-* `ofrikelS` → **Server**
-* `ofrikelSW` → **Worker**
+* `ajeftaniS` → **Server**
+* `ajeftaniSW` → **Worker**
 
 ---
 

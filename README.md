@@ -14,8 +14,8 @@ Part 1 focuses on setting up a **minimal Kubernetes cluster** using **K3s** on *
 
 | Machine | Hostname    | Role              | IP Address       |
 | ------- | ----------- | ----------------- | ---------------- |
-| Server  | `ofrikelS`  | K3s Control Plane | `192.168.56.110` |
-| Worker  | `ofrikelSW` | K3s Agent         | `192.168.56.111` |
+| Server  | `ajeftaniS`  | K3s Control Plane | `192.168.56.110` |
+| Worker  | `ajeftaniSW` | K3s Agent         | `192.168.56.111` |
 
 * OS: **Ubuntu 22.04 LTS**
 * Provider: **VirtualBox**
@@ -63,8 +63,8 @@ This will:
 
 * Create two VMs
 * Assign static private IPs
-* Install K3s server on `ofrikelS`
-* Install K3s agent on `ofrikelSW`
+* Install K3s server on `ajeftaniS`
+* Install K3s agent on `ajeftaniSW`
 * Automatically join the worker to the cluster
 
 ---
@@ -72,7 +72,7 @@ This will:
 ### 2️⃣ Access the server node
 
 ```bash
-vagrant ssh ofrikelS
+vagrant ssh ajeftaniS
 ```
 
 ---
@@ -93,8 +93,8 @@ Example:
 
 ```text
 NAME        STATUS   ROLES           INTERNAL-IP
-ofrikels    Ready    control-plane   192.168.56.110
-ofrikelsw   Ready    <none>          192.168.56.111
+ajeftanis    Ready    control-plane   192.168.56.110
+ajeftanisw   Ready    <none>          192.168.56.111
 ```
 
 ---
@@ -105,8 +105,8 @@ ofrikelsw   Ready    <none>          192.168.56.111
 * Access machines using:
 
 ```bash
-vagrant ssh ofrikelS
-vagrant ssh ofrikelSW
+vagrant ssh ajeftaniS
+vagrant ssh ajeftaniSW
 ```
 
 ---
